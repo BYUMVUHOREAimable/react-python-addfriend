@@ -110,4 +110,6 @@ flask run
 
 12. Open your browser and go to `http://localhost:5000/` to view the app.
 
-13. Don't forget to Like && Subscribe 🚀
+13. Don't forget to star the repository.
+
+14. Happy coding🚀
