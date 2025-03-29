@@ -19,7 +19,7 @@ def create_friend():
     required_fields = ["name","role","description","gender"]
     for field in required_fields:
       if field not in data or not data.get(field):
-        return jsonify({"error":f'Missing required field: {field}'}), 400
+        return jsonify({"error":f'Missing required field: {field}'}), 400 #400 bad request
 
     name = data.get("name")
     role = data.get("role")
@@ -51,14 +51,14 @@ def delete_friend(id):
   try:
     friend = Friend.query.get(id)
     if friend is None:
-      return jsonify({"error":"Friend not found"}), 404
+      return jsonify({"error":"Friend not found"}), 404 #404 not found
     
     db.session.delete(friend)
     db.session.commit()
-    return jsonify({"msg":"Friend deleted"}), 200
+    return jsonify({"msg":"Friend deleted"}), 200 #200 ok
   except Exception as e:
     db.session.rollback()
-    return jsonify({"error":str(e)}),500
+    return jsonify({"error":str(e)}),500 #500 internal server error
   
 # Update a friend profile
 @app.route("/api/friends/<int:id>",methods=["PATCH"])
@@ -66,7 +66,7 @@ def update_friend(id):
   try:
     friend = Friend.query.get(id)
     if friend is None:
-      return jsonify({"error":"Friend not found"}), 404
+      return jsonify({"error":"Friend not found"}), 404 #404 not found
     
     data = request.json
 
@@ -76,8 +76,8 @@ def update_friend(id):
     friend.gender = data.get("gender",friend.gender)
 
     db.session.commit()
-    return jsonify(friend.to_json()),200
+    return jsonify(friend.to_json()),200 #200 ok
   except Exception as e:
     db.session.rollback()
-    return jsonify({"error":str(e)}),500
+    return jsonify({"error":str(e)}),500 #500 internal server error
 
