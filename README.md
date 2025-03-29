@@ -21,13 +21,13 @@ Build a Friend Store with Python(Flask) and JavaScript(React)
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/burakorkmez/react-python-tutorial
+git clone https://github.com/BYUMVUHOREAimable/react-python-addfriend.git
 ```
 
 2. Navigate to the project directory:
 
 ```bash
-cd react-python-tutorial
+cd react-python-addfriend
 ```
 
 3. Navigate to the backend directory:
