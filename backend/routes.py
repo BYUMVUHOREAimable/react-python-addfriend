@@ -39,11 +39,11 @@ def create_friend():
     db.session.add(new_friend) 
     db.session.commit()
 
-    return jsonify(new_friend.to_json()), 201
+    return jsonify(new_friend.to_json()), 201 #201 created
     
   except Exception as e:
     db.session.rollback()
-    return jsonify({"error":str(e)}), 500
+    return jsonify({"error":str(e)}), 500 #500 internal server error
   
 # Delete a friend
 @app.route("/api/friends/<int:id>",methods=["DELETE"])
